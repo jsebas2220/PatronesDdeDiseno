@@ -1,4 +1,5 @@
-/* Definicion de ibnterface de observador*/
+/* Definicion de ibnterface de observador, este patron facilita la modificación de los objetos si la necesidad de saber cuantos objetos va a cambiar, 
+o en caso de notifcar a otros objetos si suposiciones, lo cual nos reslta una funa eficiencia de desempeño y funcionalidad */
 
 interface Observer {
     update(): void; /* Metodo update el cual sera llamado para la suscripcion*/
