@@ -1,5 +1,6 @@
 
-/* patron adaptes estructural  para hacer compatibles dos sistemas */
+/* patron adaptes estructural  para hacer compatibles dos sistemas, El patron adaptes permite una adecuacion funconal, permitiendo la facilidad
+y la opcion de convertir de una intefaz a otra la cual el cliente pueda esperar.*/
 
 
 interface Emailer { /*interface  que se llama mailer y tiene un metodo send*/
