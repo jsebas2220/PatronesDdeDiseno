@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+<body>
+    
+</body>
+<script>
+
+/* Crecion de prototiopo y la clonacion*/
+class ConnectionPrototype {  /* Creacion de la conexión de los prototipos de conexión*/
+    constructor(proto){
+        this.proto = proto;
+        return this.clone();
+    }
+
+    clone(){ /* Clonacion de las propiedades del prototipo recibido*/
+        let connection = new Connection();
+        connection.driver = this.proto.driver;
+        connection.server= this.proto.server;
+        connection.database = this.proto.database;
+        connection.user = this.proto.user;
+        connection.password = this.proto.password;
+
+        return connection;
+    }
+}
+
+class Connection{ /*Creacion de la calse de conexión con las propiedades*/
+    constructor(driver, server, database, user, password){
+        this.driver = driver;
+        this.server = server;
+        this.database = database;
+        this.user = user;
+        this.password = password;
+
+        this.status = 0;
+    }
+
+    getConnection(){
+        this.status = 1;
+        return this.driver + "://server=" +this.server+ ";database=" +this.database +";user="+this.user+ ";password="+this.password;
+    }
+
+    close(){
+        this.status = 0;
+    }
+
+}
+
+/* Creacion de los prototipos*/
+let connectionSQLServerPrototype = 
+/* Creacion de las conexiones con los valores del prototipó*/
+    new Connection("MariaDB","198.125.256","iushDB","mauricio.agudelo","123456");
+let connectionMysqlPrototype = 
+    new Connection("SQL","125.235.369","iushDB","johan.jimenez","123456");
+
+/* Clonacion de los prototipos*/
+    let connectionSQLServer = 
+    new ConnectionPrototype(connectionSQLServerPrototype);
+
+let connectionMysql =new ConnectionPrototype(connectionMysqlPrototype);
+console.log(connectionSQLServer);
+console.log(connectionMysql);
+
+connectionMysql.getConnection();
+
+</script>
+</html>
